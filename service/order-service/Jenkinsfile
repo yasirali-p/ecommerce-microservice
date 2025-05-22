@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "order-service"
+        IMAGE_TAG = "latest"
+        DOCKER_REGISTRY = "localhost:5000"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/your-username/ecommerce-microservice.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                dir('service/order-service') {
+                    script {
+                        sh "docker build -t ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} ."
+                    }
+                }
+            }
+        }
+
+        stage('Push to Local Registry') {
+            steps {
+                script {
+                    sh "docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh "kubectl apply -f k8s/order-deployment.yml"
+                    sh "kubectl apply -f k8s/order-service.yml"
+                }
+            }
+        }
+    }
+}
