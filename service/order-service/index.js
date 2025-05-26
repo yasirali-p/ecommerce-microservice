@@ -4,6 +4,11 @@ const PORT = 5001;
 
 app.use(express.json());
 
+// Add a GET route to handle the root URL
+app.get('/', (req, res) => {
+  res.send('Order Service is up and running.');
+});
+
 app.post('/orders', (req, res) => {
   const order = req.body;
   console.log('Received order:', order);
@@ -11,5 +16,5 @@ app.post('/orders', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(Order Service running on port ${PORT});
+  console.log(`Order Service running on port ${PORT}`);
 });
