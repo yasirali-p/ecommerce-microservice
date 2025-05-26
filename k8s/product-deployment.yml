@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: product
-          image: yasir1510/product-service:latest
+          image: localhost:5000/product-service:latest
           ports:
             - containerPort: 5000
           envFrom:

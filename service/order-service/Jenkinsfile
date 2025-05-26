@@ -4,13 +4,13 @@ pipeline {
     environment {
         IMAGE_NAME = "order-service"
         IMAGE_TAG = "latest"
-        DOCKER_REGISTRY = "localhost:5000"
+        DOCKER_REGISTRY = "localhost:5001"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/ecommerce-microservice.git'
+                git branch: 'main', url: 'https://github.com/yasirali-p/ecommerce-microservice.git'
             }
         }
 

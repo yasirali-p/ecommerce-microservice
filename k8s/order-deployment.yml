@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: order
-          image: yasir1510/order-service:latest
+          image: localhost:5000/order-service:latest
           ports:
             - containerPort: 5001
           envFrom:
             - configMapRef:
-                name: app-config
+                name: order-config
