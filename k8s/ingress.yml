@@ -7,20 +7,20 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: ecommerce.local
-      http:
-        paths:
-          - path: /product
-            pathType: Prefix
-            backend:
-              service:
-                name: product-service-blue
-                port:
-                  number: 80
-          - path: /order
-            pathType: Prefix
-            backend:
-              service:
-                name: order-service-blue
-                port:
-                  number: 80
+  - host: ecommerce.local
+    http:
+      paths:
+      - path: /product
+        pathType: Prefix
+        backend:
+          service:
+            name: product-service-blue
+            port:
+              number: 80
+      - path: /order
+        pathType: Prefix
+        backend:
+          service:
+            name: order-service-blue
+            port:
+              number: 80
