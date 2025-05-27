@@ -3,6 +3,7 @@ pipeline {
 
   environment {
     DOCKER_CREDENTIALS_ID = 'cb8c2f47-f8b0-4331-aa28-2c6e9ac9d088'
+    GIT_SSH_CREDENTIALS_ID = '068f6da2-eafc-4c90-a4f6-1f3ba3d27b38' // 👈 This is the SSH key ID you created in Jenkins
     ORDER_IMAGE = 'yasir1510/order'
     PRODUCT_IMAGE = 'yasir1510/product'
     KUBECONFIG = '/var/lib/jenkins/.kube/config'
@@ -11,7 +12,9 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'git@github.com:yasirali-p/ecommerce-microservice.git'
+        git branch: 'main',
+            credentialsId: "${GIT_SSH_CREDENTIALS_ID}",
+            url: 'git@github.com:yasirali-p/ecommerce-microservice.git'
       }
     }
 
