@@ -14,7 +14,7 @@ pipeline {
       steps {
         git branch: 'main',
             credentialsId: "${GIT_SSH_CREDENTIALS_ID}",
-            url: 'git@github.com:yasirali-p/ecommerce-microservice.git'
+            url: 'https://github.com/yasirali-p/ecommerce-microservice.git'
       }
     }
 
