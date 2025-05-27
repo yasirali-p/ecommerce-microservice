@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: product
-        image: your-dockerhub/product-service:v2
+        image: yasir1510/product:latest
         ports:
         - containerPort: 5000
         resources:

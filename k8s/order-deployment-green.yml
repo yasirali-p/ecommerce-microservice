@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: order
-        image: your-dockerhub/order-service:v2
+        image: yasir1510/order:latest
         ports:
         - containerPort: 5001
         resources:
