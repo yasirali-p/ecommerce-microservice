@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: product
+    version: green   # Change to "blue" or "green" as needed
   ports:
     - protocol: TCP
-      port: 80
+      port: 5000
       targetPort: 5000
-  type: ClusterIP

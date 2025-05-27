@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: order
+    version: green   # Change this to "blue" or "green" based on routing
   ports:
     - protocol: TCP
-      port: 80
+      port: 5001
       targetPort: 5001
-  type: ClusterIP

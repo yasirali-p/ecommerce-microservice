@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-green
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+      version: green
+  template:
+    metadata:
+      labels:
+        app: order
+        version: green
+    spec:
+      containers:
+      - name: order
+        image: your-dockerhub/order-service:v2
+        ports:
+        - containerPort: 5001
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"

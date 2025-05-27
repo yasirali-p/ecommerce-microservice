@@ -14,13 +14,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: product-service
+                name: product-service-blue
                 port:
                   number: 80
           - path: /order
             pathType: Prefix
             backend:
               service:
-                name: order-service
+                name: order-service-blue
                 port:
                   number: 80
