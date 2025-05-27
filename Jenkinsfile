@@ -4,8 +4,8 @@ pipeline {
   environment {
     DOCKER_CREDENTIALS_ID = 'cb8c2f47-f8b0-4331-aa28-2c6e9ac9d088'
     GIT_SSH_CREDENTIALS_ID = '068f6da2-eafc-4c90-a4f6-1f3ba3d27b38' // 👈 This is the SSH key ID you created in Jenkins
-    ORDER_IMAGE = 'yasir1510/order'
-    PRODUCT_IMAGE = 'yasir1510/product'
+    ORDER_IMAGE = 'yasir1510/order-service'
+    PRODUCT_IMAGE = 'yasir1510/product-service'
     KUBECONFIG = '/var/lib/jenkins/.kube/config'
   }
 
@@ -21,8 +21,8 @@ pipeline {
     stage('Build Docker Images') {
       steps {
         script {
-          docker.build("${ORDER_IMAGE}:latest", 'service/order')
-          docker.build("${PRODUCT_IMAGE}:latest", 'service/product')
+          docker.build("${ORDER_IMAGE}:latest", 'service/order-service')
+          docker.build("${PRODUCT_IMAGE}:latest", 'service/product-service')
         }
       }
     }
