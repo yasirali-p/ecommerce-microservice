@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: product
-    version: green   # Change to "blue" or "green" as needed
+    version: blue   # Change to "blue" or "green" as needed
   ports:
     - protocol: TCP
-      port: 5000
+      port: 80
       targetPort: 5000

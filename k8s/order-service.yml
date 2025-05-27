@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: order
-    version: green   # Change this to "blue" or "green" based on routing
+    version: blue   # Change this to "blue" or "green" based on routing
   ports:
     - protocol: TCP
-      port: 5001
+      port: 80
       targetPort: 5001
