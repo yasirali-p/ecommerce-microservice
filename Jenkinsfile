@@ -54,6 +54,7 @@ pipeline {
         sh 'kubectl apply -f k8s/ingress.yml'
         sh 'kubectl apply -f k8s/hpa-order.yml'
         sh 'kubectl apply -f k8s/hpa-product.yml'
+        sh 'kubectl apply -f k8s/monitoring-namespace.yml'
         sh 'kubectl apply -f k8s/prometheus-configmap.yml'
         sh 'kubectl apply -f k8s/prometheus-deployment.yml'
         sh 'kubectl apply -f k8s/prometheus-service.yml'
