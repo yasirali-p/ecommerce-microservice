@@ -55,11 +55,14 @@ pipeline {
         sh 'kubectl apply -f k8s/hpa-order.yml'
         sh 'kubectl apply -f k8s/hpa-product.yml'
         sh 'kubectl apply -f k8s/monitoring-namespace.yml'
+        sh 'kubectl apply -f k8s/node-exporter-daemonset.yml'
+        sh 'kubectl apply -f k8s/node-exporter-service.yml'
         sh 'kubectl apply -f k8s/prometheus-configmap.yml'
         sh 'kubectl apply -f k8s/prometheus-deployment.yml'
         sh 'kubectl apply -f k8s/prometheus-service.yml'
         sh 'kubectl apply -f k8s/grafana-deployment.yml'
         sh 'kubectl apply -f k8s/grafana-service.yml'
+        sh 'kubectl rollout restart deployment prometheus-deployment -n monitoring'
       }
     }
   }
